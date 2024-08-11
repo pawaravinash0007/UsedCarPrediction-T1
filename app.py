@@ -19,7 +19,7 @@ def main():
     st.sidebar.markdown("Lets Find Second Hand CAR Price")
 
 #---- load data---
-    st.cache(persist=True)
+    st.cache_data(persist=True)
     def load_data():
         data=pd.read_csv("cleandata.csv")
         return data
