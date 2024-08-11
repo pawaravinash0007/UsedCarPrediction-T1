@@ -24,7 +24,7 @@ def main():
         data=pd.read_csv("cleandata.csv")
         return data
 
-    st.cache(persist=True)
+    st.cache_data(persist=True)
     def split(df):
         x=pd.get_dummies(data=df,drop_first=True,dtype="int64")
         x.drop(["price"],axis=1,inplace=True)
