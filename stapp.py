@@ -31,7 +31,7 @@ new_data = pd.DataFrame({
     'Fuel_Type': [fuel]
 })
 
-# Make prediction
-if st.button("Predict Price"):
-    prediction = model.predict(new_data)[0]
-    st.write(f"The predicted price of the car is: ₹{prediction:.2f}")
+# # Make prediction
+# if st.button("Predict Price"):
+#     prediction = model.predict(new_data)[0]
+#     st.write(f"The predicted price of the car is: ₹{prediction:.2f}")
