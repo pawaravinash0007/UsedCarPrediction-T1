@@ -8,7 +8,7 @@ with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Load the dataset
-data = pd.read_csv('data.csv')
+data = pd.read_csv('cleandata.csv')
 
 st.title("Used Car Price Prediction")
 
