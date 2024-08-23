@@ -7,9 +7,29 @@ import pickle
 # with open('model.pkl', 'rb') as file:
 #     model = pickle.load(file)
 
-# Load the dataset
+# Load the dataset -- model developement --
 data = pd.read_csv('cleandata.csv')
+y=used_car["price"]
+X=used_car.drop(["price","ID"],axis=1)
+X
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=1)
 
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+trans=ColumnTransformer([("trf1",OneHotEncoder(drop="first"),
+                         ['make', 'fuel-type', 'aspiration', 'num-of-doors', 'body-style',
+       'drive-wheels', 'engine-location', 'engine-type', 'num-of-cylinders',
+       'fuel-system'])],
+                        remainder="passthrough")
+# encoding
+X_train=trans.fit_transform(X_train)
+X_test=trans.transform(X_test)
+model=RandomForestRegressor()
+model.fit(X_train,y_train)
+model.predict(X_test)
+pickle.dump(model,open("my_model.pkl","wb"))
+#------- model developement complete
 st.title("Used Car Price Prediction")
 
 # Get user input
