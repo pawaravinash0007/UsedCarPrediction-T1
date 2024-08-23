@@ -3,9 +3,9 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 import pickle
 
-# Load the trained model
-with open('model.pkl', 'rb') as file:
-    model = pickle.load(file)
+# # Load the trained model
+# with open('model.pkl', 'rb') as file:
+#     model = pickle.load(file)
 
 # Load the dataset
 data = pd.read_csv('cleandata.csv')
